@@ -36,3 +36,5 @@ root                    (project root folder)
 ## Authors
 ---
 Mark Howard - how17014@byui.edu
+Conner Haar - haa18002@byui.edu
+Allison Day - allisonbday@byui.edu
