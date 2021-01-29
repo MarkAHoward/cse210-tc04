@@ -35,4 +35,4 @@ root                    (project root folder)
 
 ## Authors
 ---
-* TODO: Add your names and emails here
+Mark Howard - how17014@byui.edu
