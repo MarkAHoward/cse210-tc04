@@ -1,4 +1,5 @@
 from game.dealer import Dealer
+from colorama import Fore, Style
 
 class Director:
     def __init__(self):
@@ -12,10 +13,11 @@ class Director:
         Start the game
         -Conner
         '''
+        print(f'You have: {self.points} points')
         while self.alive:
             self.dealer.draw_card()
             self.get_choice()
-            self.dealer.determine()
+            # self.dealer.determine()
             self.determine_points()
             self.play_again
     
@@ -24,7 +26,8 @@ class Director:
         Ask user for 'h' or 'l' (self.choice)
         -Allison
         '''
-        self.choice = input(f"Higher or lower? [h/l] ")
+        self.choice = input(Fore.RED + f"Higher or lower? [h/l] " + Style.RESET_ALL)
+        print(Fore.GREEN + f'You have selected {self.choice}' + Style.RESET_ALL)
 
     def determine_points(self):
         '''
@@ -34,9 +37,10 @@ class Director:
         '''
         result = self.dealer.determine()
         if result == self.choice:
-            self.points += 100
-        else:
-            self.points -= 75
+            self.points = self.points + 100
+        if result != self.choice:
+            self.points = self.points - 75
+        print(f'You have: {self.points} points')
 
     def play_again(self):
         '''
@@ -45,7 +49,7 @@ class Director:
         -Conner
         '''
         if self.points > 0:
-            answer = input("Do you want to play again (y/n): ")
+            answer = print(input("Do you want to play again (y/n): "))
             i = 1
             while i != 0:
                 if answer == "y":
