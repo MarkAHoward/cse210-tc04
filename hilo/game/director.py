@@ -14,10 +14,10 @@ class Director:
         -Conner
         '''
         print(f'You have: {self.points} points')
-        while self.alive:
-            self.dealer.draw_card()
+        self.dealer.draw_card()
+        while self.alive == True:
             self.get_choice()
-            # self.dealer.determine()
+            self.dealer.draw_card()
             self.determine_points()
             self.play_again
     
@@ -36,6 +36,7 @@ class Director:
         -Allison
         '''
         result = self.dealer.determine()
+        print(Fore.BLUE + result + Style.RESET_ALL)
         if result == self.choice:
             self.points = self.points + 100
         if result != self.choice:
@@ -48,8 +49,9 @@ class Director:
         self.alive to False
         -Conner
         '''
-        if self.points > 0:
-            answer = print(input("Do you want to play again (y/n): "))
+        check = self.points
+        if check > 0:
+            answer = input("Do you want to play again (y/n): ")
             i = 1
             while i != 0:
                 if answer == "y":

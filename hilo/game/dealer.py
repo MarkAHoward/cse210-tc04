@@ -14,9 +14,9 @@ class Dealer:
 
     def determine(self):
         if self.card_new > self.card_old:
-            result = 'h'
-        if self.card_new < self.card_old:
-            result = 'l'
-        if self.card_new == self.card_old:
-            result = 'n'
+            result = "h"
+        elif self.card_new < self.card_old:
+            result = "l"
+        else:
+            result = "n"
         return result
