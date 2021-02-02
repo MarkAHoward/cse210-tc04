@@ -19,7 +19,7 @@ class Director:
             self.get_choice()
             self.dealer.draw_card()
             self.determine_points()
-            self.play_again
+            self.play_again()
     
     def get_choice(self):
         '''
@@ -36,7 +36,7 @@ class Director:
         -Allison
         '''
         result = self.dealer.determine()
-        print(Fore.BLUE + result + Style.RESET_ALL)
+        # print(Fore.BLUE + result + Style.RESET_ALL)
         if result == self.choice:
             self.points = self.points + 100
         if result != self.choice:
@@ -49,18 +49,23 @@ class Director:
         self.alive to False
         -Conner
         '''
-        check = self.points
-        if check > 0:
-            answer = input("Do you want to play again (y/n): ")
-            i = 1
-            while i != 0:
-                if answer == "y":
-                    self.alive = True
-                    i -= 1
-                elif answer == "n":
-                    self.alive == False
-                    i -=1
-                else:
-                    print("Pleaser enter a valid input (y/n)")
+        if self.points > 0:
+            check = self.check_response()
+            self.alive = check
         else:
-            self.alive = False 
+            self.alive = False
+    
+    def check_response(self):
+        i = True
+        while i == True:
+            ask = input("Do you want to play again (y/n): ")
+            if ask == "y":
+                answer = True
+                i = False
+            elif ask == "n":
+                answer = False
+                i = False
+            else:
+                print("Pleaser enter a valid input (y/n)")
+        return answer
+
