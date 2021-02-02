@@ -53,6 +53,7 @@ class Director:
             check = self.check_response()
             self.alive = check
         else:
+            print("Game Over")
             self.alive = False
     
     def check_response(self):
@@ -63,6 +64,7 @@ class Director:
                 answer = True
                 i = False
             elif ask == "n":
+                print("Good Game!")
                 answer = False
                 i = False
             else:
