@@ -14,12 +14,13 @@ class Director:
         -Conner
         '''
         print(f'You have: {self.points} points')
+        print("Hi")
         self.dealer.draw_card()
-        while self.alive == True:
+        while self.alive:
             self.get_choice()
             self.dealer.draw_card()
             self.determine_points()
-            self.play_again
+            self.play_again()
     
     def get_choice(self):
         '''
@@ -50,6 +51,7 @@ class Director:
         -Conner
         '''
         check = self.points
+        print(self.points)
         if check > 0:
             answer = input("Do you want to play again (y/n): ")
             i = 1
@@ -59,8 +61,10 @@ class Director:
                     i -= 1
                 elif answer == "n":
                     self.alive == False
+                    print("Good game!")
                     i -=1
                 else:
-                    print("Pleaser enter a valid input (y/n)")
+                    answer = input("Pleaser enter a valid input (y/n): ")
         else:
-            self.alive = False 
+            self.alive == False
+            print("Game Over")
